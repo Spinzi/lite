@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dalibu — Where communities actually happen</title>
+<meta name="description" content="Dalibu is an independent community platform for building spaces people actually stick around in.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Dalibu — Where communities actually happen">
+<meta property="og:description" content="An independent community platform built for the people who run them.">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%230A0C10%22/><circle cx=%2235%22 cy=%2250%22 r=%228%22 fill=%22%238B7CFF%22/><circle cx=%2265%22 cy=%2250%22 r=%228%22 fill=%22%23FF7A59%22/></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          base: '#0A0C10',
+          surface: '#12151C',
+          surface2: '#171B24',
+          border: '#23262F',
+          muted: '#8A8F9C',
+          violet: '#8B7CFF',
+          coral: '#FF7A59',
+        },
+        fontFamily: {
+          display: ['Sora', 'sans-serif'],
+          body: ['Inter', 'sans-serif'],
+          mono: ['JetBrains Mono', 'monospace'],
+        },
+      },
+    },
+  }
+</script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-base text-[#F2F3F5] font-body antialiased">
+
+<!-- ================= NAV ================= -->
+<header class="fixed top-0 inset-x-0 z-50 border-b border-border/60 backdrop-blur-xl bg-base/70">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
+    <a href="#top" class="flex items-center gap-2 font-display font-bold text-lg tracking-tight">
+      <span class="relative flex h-2.5 w-2.5">
+        <span class="pulse-dot absolute inline-flex h-full w-full rounded-full bg-violet opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-violet"></span>
+      </span>
+      Dalibu
+    </a>
+
+    <nav class="hidden md:flex items-center gap-8 text-sm text-muted font-medium">
+      <a href="#features" class="hover:text-white transition-colors">Features</a>
+      <a href="#pricing" class="hover:text-white transition-colors">Pricing</a>
+      <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+      <a href="#testimonials" class="hover:text-white transition-colors">Stories</a>
+      <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <button id="theme-toggle" aria-label="Toggle light and dark mode" class="h-9 w-9 rounded-full border border-border flex items-center justify-center text-muted hover:text-white hover:border-violet/50 transition-colors">
+        <svg id="icon-sun" class="hidden h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg id="icon-moon" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="#pricing" class="hidden sm:inline-flex items-center rounded-full bg-white text-base px-4 py-2 text-sm font-semibold hover:bg-violet hover:text-white transition-colors">
+        Get started
+      </a>
+      <button id="mobile-menu-btn" class="md:hidden h-9 w-9 flex items-center justify-center text-muted" aria-label="Open menu">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden border-t border-border bg-base px-6 py-4 flex flex-col gap-4 text-sm text-muted">
+    <a href="#features" class="hover:text-white">Features</a>
+    <a href="#pricing" class="hover:text-white">Pricing</a>
+    <a href="#faq" class="hover:text-white">FAQ</a>
+    <a href="#testimonials" class="hover:text-white">Stories</a>
+    <a href="#contact" class="hover:text-white">Contact</a>
+  </div>
+</header>
+
+<div id="cursor-glow" class="pointer-events-none fixed inset-0 z-0 opacity-0 transition-opacity duration-500"></div>
+
+<!-- ================= HERO ================= -->
+<section id="top" class="relative pt-40 pb-28 px-6 lg:px-8 overflow-hidden">
+  <div class="dot-grid absolute inset-0 -z-10"></div>
+  <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full bg-violet/10 blur-[140px] -z-10"></div>
+
+  <div class="max-w-7xl mx-auto reveal">
+    <div class="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-3 py-1.5 text-xs font-mono text-muted mb-8">
+      <span class="h-1.5 w-1.5 rounded-full bg-coral"></span>
+      Now onboarding new communities
+    </div>
+
+    <h1 class="font-display font-bold text-[13vw] leading-[0.95] sm:text-6xl md:text-7xl lg:text-8xl tracking-tight max-w-5xl">
+      Build a community
+      <span class="block text-transparent bg-clip-text bg-gradient-to-r from-violet to-coral">people don't leave.</span>
+    </h1>
+
+    <p class="mt-8 max-w-xl text-lg text-muted leading-relaxed">
+      Dalibu is an independent platform for spaces that need more than a group chat —
+      structured, ownable, and built around the people who actually show up.
+    </p>
+
+    <div class="mt-10 flex flex-wrap items-center gap-4">
+      <a href="#pricing" class="ripple-btn relative overflow-hidden inline-flex items-center gap-2 rounded-full bg-violet px-6 py-3.5 font-semibold text-white hover:bg-violet/90 transition-colors">
+        Join Dalibu
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#pricing" class="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3.5 font-semibold text-white hover:border-violet/60 hover:bg-surface transition-colors">
+        View pricing
+      </a>
+    </div>
+
+    <!-- Pulse waveform signature -->
+    <div class="mt-20 border-t border-border pt-8">
+      <svg class="w-full h-16" viewBox="0 0 1200 80" preserveAspectRatio="none" aria-hidden="true">
+        <path id="pulse-path" d="M0,40 L120,40 L140,15 L160,65 L180,40 L340,40 L360,10 L380,70 L400,40 L560,40 L580,20 L600,60 L620,40 L1200,40"
+          fill="none" stroke="url(#pulseGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <defs>
+          <linearGradient id="pulseGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#8B7CFF"/>
+            <stop offset="100%" stop-color="#FF7A59"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <p class="text-xs font-mono text-muted mt-2 tracking-wide">Community activity, live-ish.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section id="features" class="relative py-28 px-6 lg:px-8 border-t border-border">
+  <div class="max-w-7xl mx-auto">
+    <div class="reveal max-w-2xl mb-16">
+      <span class="font-mono text-xs text-coral tracking-widest uppercase">Why Dalibu</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl mt-4 tracking-tight">
+        Built for people who run communities, not just host chats.
+      </h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+      <div class="tilt-card reveal group rounded-2xl border border-border bg-surface p-7 hover:border-violet/40 transition-colors">
+        <div class="h-11 w-11 rounded-xl bg-violet/10 flex items-center justify-center text-violet mb-5">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3 class="font-display font-semibold text-lg mb-2">Fast to set up</h3>
+        <p class="text-sm text-muted leading-relaxed">Go from empty space to a running community in minutes, not weeks of configuration.</p>
+      </div>
+
+      <div class="tilt-card reveal group rounded-2xl border border-border bg-surface p-7 hover:border-violet/40 transition-colors">
+        <div class="h-11 w-11 rounded-xl bg-coral/10 flex items-center justify-center text-coral mb-5">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/></svg>
+        </div>
+        <h3 class="font-display font-semibold text-lg mb-2">Built to last</h3>
+        <p class="text-sm text-muted leading-relaxed">Your community's structure, roles, and history stay intact as it grows — nothing outgrows itself.</p>
+      </div>
+
+      <div class="tilt-card reveal group rounded-2xl border border-border bg-surface p-7 hover:border-violet/40 transition-colors">
+        <div class="h-11 w-11 rounded-xl bg-violet/10 flex items-center justify-center text-violet mb-5">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        </div>
+        <h3 class="font-display font-semibold text-lg mb-2">Responsive support</h3>
+        <p class="text-sm text-muted leading-relaxed">A real team behind the platform, reachable when something needs a human answer.</p>
+      </div>
+
+      <div class="tilt-card reveal group rounded-2xl border border-border bg-surface p-7 hover:border-violet/40 transition-colors">
+        <div class="h-11 w-11 rounded-xl bg-coral/10 flex items-center justify-center text-coral mb-5">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9h6v6H9z"/></svg>
+        </div>
+        <h3 class="font-display font-semibold text-lg mb-2">Straightforward pricing</h3>
+        <p class="text-sm text-muted leading-relaxed">Clear plans with no surprise tiers. You know what you're paying for before you commit.</p>
+      </div>
+
+      <div class="tilt-card reveal group rounded-2xl border border-border bg-surface p-7 hover:border-violet/40 transition-colors">
+        <div class="h-11 w-11 rounded-xl bg-violet/10 flex items-center justify-center text-violet mb-5">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="font-display font-semibold text-lg mb-2">Privacy-respecting</h3>
+        <p class="text-sm text-muted leading-relaxed">Your community's data belongs to your community, with sensible defaults and control.</p>
+      </div>
+
+      <div class="tilt-card reveal group rounded-2xl border border-border bg-surface p-7 hover:border-violet/40 transition-colors">
+        <div class="h-11 w-11 rounded-xl bg-coral/10 flex items-center justify-center text-coral mb-5">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3v18M5 3l14 5-14 5"/></svg>
+        </div>
+        <h3 class="font-display font-semibold text-lg mb-2">Independent platform</h3>
+        <p class="text-sm text-muted leading-relaxed">Dalibu is its own thing, built with its own roadmap — not a plugin on top of someone else's app.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRICING ================= -->
+<section id="pricing" class="relative py-28 px-6 lg:px-8 border-t border-border">
+  <div class="max-w-7xl mx-auto">
+    <div class="reveal max-w-2xl mb-16">
+      <span class="font-mono text-xs text-violet tracking-widest uppercase">Pricing</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl mt-4 tracking-tight">
+        Simple plans. Edit the numbers, keep the shape.
+      </h2>
+      <p class="text-muted mt-4">Placeholder pricing below — replace with your actual figures.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-6 max-w-3xl">
+
+      <div class="tilt-card reveal rounded-2xl border border-border bg-surface p-8 flex flex-col hover:border-violet/40 transition-colors">
+        <h3 class="font-display font-semibold text-lg">Starter</h3>
+        <p class="text-sm text-muted mt-1">For small, growing communities.</p>
+        <div class="mt-6 flex items-baseline gap-1">
+          <span class="font-display font-bold text-4xl">$—</span>
+          <span class="text-muted text-sm">/ your price</span>
+        </div>
+        <ul class="mt-6 space-y-3 text-sm text-muted flex-1">
+          <li class="flex items-start gap-2"><svg class="h-4 w-4 mt-0.5 text-violet shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Placeholder feature one</li>
+          <li class="flex items-start gap-2"><svg class="h-4 w-4 mt-0.5 text-violet shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Placeholder feature two</li>
+          <li class="flex items-start gap-2"><svg class="h-4 w-4 mt-0.5 text-violet shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Placeholder feature three</li>
+        </ul>
+        <a href="#contact" class="ripple-btn relative overflow-hidden mt-8 inline-flex justify-center items-center rounded-full border border-border py-3 font-semibold hover:border-violet/60 hover:bg-surface2 transition-colors">
+          Choose Starter
+        </a>
+      </div>
+
+      <div class="tilt-card reveal relative rounded-2xl border border-violet/50 bg-gradient-to-b from-surface to-surface2 p-8 flex flex-col shadow-[0_0_40px_-10px_rgba(139,124,255,0.35)]">
+        <span class="absolute -top-3 left-8 rounded-full bg-violet px-3 py-1 text-xs font-semibold text-white">Popular</span>
+        <h3 class="font-display font-semibold text-lg">Growth</h3>
+        <p class="text-sm text-muted mt-1">For established, active communities.</p>
+        <div class="mt-6 flex items-baseline gap-1">
+          <span class="font-display font-bold text-4xl">$—</span>
+          <span class="text-muted text-sm">/ your price</span>
+        </div>
+        <ul class="mt-6 space-y-3 text-sm text-muted flex-1">
+          <li class="flex items-start gap-2"><svg class="h-4 w-4 mt-0.5 text-coral shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Everything in Starter</li>
+          <li class="flex items-start gap-2"><svg class="h-4 w-4 mt-0.5 text-coral shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Placeholder feature four</li>
+          <li class="flex items-start gap-2"><svg class="h-4 w-4 mt-0.5 text-coral shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Placeholder feature five</li>
+        </ul>
+        <a href="#contact" class="ripple-btn relative overflow-hidden mt-8 inline-flex justify-center items-center rounded-full bg-violet py-3 font-semibold text-white hover:bg-violet/90 transition-colors">
+          Choose Growth
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq" class="relative py-28 px-6 lg:px-8 border-t border-border">
+  <div class="max-w-4xl mx-auto">
+    <div class="reveal max-w-2xl mb-16">
+      <span class="font-mono text-xs text-coral tracking-widest uppercase">FAQ</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl mt-4 tracking-tight">Questions, answered.</h2>
+      <p class="text-muted mt-4">Placeholder questions — swap in your own before launch.</p>
+    </div>
+
+    <div class="reveal divide-y divide-border border-y border-border" id="faq-list">
+
+      <div class="faq-item py-2">
+        <button class="faq-trigger w-full flex items-center justify-between text-left py-5 font-display font-medium text-lg">
+          What is Dalibu?
+          <svg class="faq-icon h-5 w-5 shrink-0 text-muted transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5v14"/></svg>
+        </button>
+        <div class="faq-panel overflow-hidden max-h-0 transition-all duration-300">
+          <p class="pb-5 text-sm text-muted leading-relaxed">Placeholder answer — describe what Dalibu is and who it's for.</p>
+        </div>
+      </div>
+
+      <div class="faq-item py-2">
+        <button class="faq-trigger w-full flex items-center justify-between text-left py-5 font-display font-medium text-lg">
+          How do I get started?
+          <svg class="faq-icon h-5 w-5 shrink-0 text-muted transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5v14"/></svg>
+        </button>
+        <div class="faq-panel overflow-hidden max-h-0 transition-all duration-300">
+          <p class="pb-5 text-sm text-muted leading-relaxed">Placeholder answer — walk through your actual sign-up steps here.</p>
+        </div>
+      </div>
+
+      <div class="faq-item py-2">
+        <button class="faq-trigger w-full flex items-center justify-between text-left py-5 font-display font-medium text-lg">
+          What does it cost?
+          <svg class="faq-icon h-5 w-5 shrink-0 text-muted transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5v14"/></svg>
+        </button>
+        <div class="faq-panel overflow-hidden max-h-0 transition-all duration-300">
+          <p class="pb-5 text-sm text-muted leading-relaxed">Placeholder answer — point people to the pricing section above.</p>
+        </div>
+      </div>
+
+      <div class="faq-item py-2">
+        <button class="faq-trigger w-full flex items-center justify-between text-left py-5 font-display font-medium text-lg">
+          Can I get help if something goes wrong?
+          <svg class="faq-icon h-5 w-5 shrink-0 text-muted transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5v14"/></svg>
+        </button>
+        <div class="faq-panel overflow-hidden max-h-0 transition-all duration-300">
+          <p class="pb-5 text-sm text-muted leading-relaxed">Placeholder answer — describe your actual support channels and hours.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section id="testimonials" class="relative py-28 px-6 lg:px-8 border-t border-border">
+  <div class="max-w-7xl mx-auto">
+    <div class="reveal max-w-2xl mb-16">
+      <span class="font-mono text-xs text-violet tracking-widest uppercase">Stories</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl mt-4 tracking-tight">
+        Placeholder quotes — swap for real ones.
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="tilt-card reveal rounded-2xl border border-border bg-surface p-7">
+        <div class="flex gap-1 text-coral mb-4" aria-hidden="true">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+        </div>
+        <p class="text-sm text-muted leading-relaxed">"Placeholder testimonial text. Replace with a real quote from an actual community you support."</p>
+        <div class="mt-6 flex items-center gap-3">
+          <div class="h-9 w-9 rounded-full bg-violet/20 flex items-center justify-center font-display text-xs text-violet">CM</div>
+          <div>
+            <p class="text-sm font-medium">Community Manager</p>
+            <p class="text-xs text-muted">Placeholder role</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tilt-card reveal rounded-2xl border border-border bg-surface p-7">
+        <div class="flex gap-1 text-coral mb-4" aria-hidden="true">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+        </div>
+        <p class="text-sm text-muted leading-relaxed">"Another placeholder quote. Keep it short, specific, and easy to swap out later."</p>
+        <div class="mt-6 flex items-center gap-3">
+          <div class="h-9 w-9 rounded-full bg-coral/20 flex items-center justify-center font-display text-xs text-coral">FO</div>
+          <div>
+            <p class="text-sm font-medium">Founder</p>
+            <p class="text-xs text-muted">Placeholder role</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tilt-card reveal rounded-2xl border border-border bg-surface p-7">
+        <div class="flex gap-1 text-coral mb-4" aria-hidden="true">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+        </div>
+        <p class="text-sm text-muted leading-relaxed">"Third placeholder testimonial. Speaks to a specific benefit once you have real feedback."</p>
+        <div class="mt-6 flex items-center gap-3">
+          <div class="h-9 w-9 rounded-full bg-violet/20 flex items-center justify-center font-display text-xs text-violet">MO</div>
+          <div>
+            <p class="text-sm font-medium">Moderator</p>
+            <p class="text-xs text-muted">Placeholder role</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="relative py-28 px-6 lg:px-8 border-t border-border">
+  <div class="max-w-3xl mx-auto text-center reveal">
+    <span class="font-mono text-xs text-coral tracking-widest uppercase">Contact</span>
+    <h2 class="font-display font-bold text-3xl sm:text-4xl mt-4 tracking-tight">
+      Ready to set up your space?
+    </h2>
+    <p class="text-muted mt-4 max-w-lg mx-auto">
+      Fill in your own contact details or form here. This section is a placeholder for your real contact flow.
+    </p>
+
+    <form class="mt-10 grid sm:grid-cols-2 gap-4 text-left" id="contact-form">
+      <div class="sm:col-span-1">
+        <label class="text-xs font-mono text-muted" for="name">Name</label>
+        <input id="name" type="text" placeholder="Your name" class="mt-2 w-full rounded-xl bg-surface border border-border px-4 py-3 text-sm focus:outline-none focus:border-violet/60 transition-colors">
+      </div>
+      <div class="sm:col-span-1">
+        <label class="text-xs font-mono text-muted" for="email">Email</label>
+        <input id="email" type="email" placeholder="you@example.com" class="mt-2 w-full rounded-xl bg-surface border border-border px-4 py-3 text-sm focus:outline-none focus:border-violet/60 transition-colors">
+      </div>
+      <div class="sm:col-span-2">
+        <label class="text-xs font-mono text-muted" for="message">Message</label>
+        <textarea id="message" rows="4" placeholder="Tell us about your community" class="mt-2 w-full rounded-xl bg-surface border border-border px-4 py-3 text-sm focus:outline-none focus:border-violet/60 transition-colors"></textarea>
+      </div>
+      <div class="sm:col-span-2">
+        <button type="submit" class="ripple-btn relative overflow-hidden w-full sm:w-auto inline-flex justify-center items-center rounded-full bg-violet px-8 py-3.5 font-semibold text-white hover:bg-violet/90 transition-colors">
+          Send message
+        </button>
+        <p id="form-note" class="text-xs text-muted mt-3">Placeholder form — connect it to your own backend or email service.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="relative border-t border-border px-6 lg:px-8 py-14">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+    <div>
+      <a href="#top" class="font-display font-bold text-lg">Dalibu</a>
+      <p class="text-sm text-muted mt-2 max-w-xs">An independent community platform. Placeholder tagline — edit as needed.</p>
+    </div>
+
+    <div class="flex flex-wrap gap-x-10 gap-y-4 text-sm text-muted">
+      <div class="flex flex-col gap-2">
+        <span class="text-xs font-mono uppercase text-[#5A5F6C]">Product</span>
+        <a href="#features" class="hover:text-white transition-colors">Features</a>
+        <a href="#pricing" class="hover:text-white transition-colors">Pricing</a>
+      </div>
+      <div class="flex flex-col gap-2">
+        <span class="text-xs font-mono uppercase text-[#5A5F6C]">Support</span>
+        <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+      </div>
+      <div class="flex flex-col gap-2">
+        <span class="text-xs font-mono uppercase text-[#5A5F6C]">Follow</span>
+        <div class="flex gap-3">
+          <a href="#" aria-label="Twitter / X" class="hover:text-white transition-colors"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h3l-7.5 8.6L22 22h-6.6l-5.2-6.6L4 22H1l8-9.2L2 2h6.8l4.7 6z"/></svg></a>
+          <a href="#" aria-label="Community" class="hover:text-white transition-colors"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6 2 11c0 2.9 1.7 5.5 4.3 7.1L5 22l4.3-2.1c.9.2 1.8.3 2.7.3 5.5 0 10-4 10-9s-4.5-9-10-9z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted">
+    <p>© 2026 Dalibu. All rights reserved.</p>
+    <p>Designed &amp; developed by <a href="https://spinzi.netlify.app" class="text-white hover:text-violet transition-colors" target="_blank" rel="noopener">Spinzi</a></p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
